@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class FinishingLine : MonoBehaviour
 {
@@ -42,5 +43,7 @@ public class FinishingLine : MonoBehaviour
     {
         yield return new WaitForSeconds(secondsToWait);
         UnityEngine.SceneManagement.SceneManager.LoadScene(UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+
+        
     }
 }
