@@ -10,6 +10,8 @@ public class FinishingLine : MonoBehaviour
     // and after 2 seconds restart the level.
 
     // Inspector variables
+    [SerializeField] private ParticleSystem particleEffect;
+
     [SerializeField] private string tagToCheck = "Finish";
     [SerializeField] private float secondsToWait = 1f;
 
@@ -20,6 +22,7 @@ public class FinishingLine : MonoBehaviour
         if (collision.gameObject.tag == tagToCheck)
         {
             ShowCrashMessage("You have finished the level!");
+            particleEffect.Play();
             StartCoroutine(HideCrashMessage(secondsToWait));
             StartCoroutine(RestartLevel(secondsToWait));
         }

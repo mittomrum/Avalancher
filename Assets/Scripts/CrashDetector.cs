@@ -5,10 +5,9 @@ using TMPro;
 
 public class CrashDetector : MonoBehaviour
 {
-    // If the player is touching the tag ground with his trigger collider, it should print out crash
-    // and after 2 seconds restart the level.
+    // using the inspector let the user choose particle effect, then play it when the player crashes
 
-    // Inspector variables
+    [SerializeField] private ParticleSystem particleEffect;
     [SerializeField] private string tagToCheck = "Ground";
     [SerializeField] private float secondsToWait = 1f;
 
@@ -21,6 +20,7 @@ public class CrashDetector : MonoBehaviour
         {
             Debug.Log("Crash");
             ShowCrashMessage("Crash");
+            particleEffect.Play();
             StartCoroutine(HideCrashMessage(secondsToWait));
             StartCoroutine(RestartLevel(secondsToWait));
         }

@@ -180,9 +180,12 @@ GameObject:
   - component: {fileID: 4292398893983856398}
   - component: {fileID: 1525706295394060145}
   - component: {fileID: 2176731651419918972}
+  - component: {fileID: 6954363924586775776}
+  - component: {fileID: 8375376498526920052}
+  - component: {fileID: 3137937086044823766}
   m_Layer: 0
   m_Name: BillyBum
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -289,7 +292,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 100
   m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -302,6 +305,49 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
+--- !u!114 &6954363924586775776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4928325935596021226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86a57d75947166c4396c4561e6323ced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  RotationSpeed: 3
+--- !u!114 &8375376498526920052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4928325935596021226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2e745287e9177f43811acb075233104, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagToCheck: Finish
+  secondsToWait: 0.52
+  textToDisplay: {fileID: 0}
+--- !u!114 &3137937086044823766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4928325935596021226}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1798cc5c10fa2f14982e57f14e023eb4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tagToCheck: Ground
+  secondsToWait: 0.51
+  textToDisplay: {fileID: 0}
 --- !u!1 &8305640545154424677
 GameObject:
   m_ObjectHideFlags: 0
