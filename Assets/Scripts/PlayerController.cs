@@ -27,4 +27,13 @@ public class PlayerController : MonoBehaviour
             rb.AddTorque(-RotationSpeed);
         }
     }
+    float GetSpeed()
+    {
+        if (rb.velocity.magnitude < 0.01f)
+        {
+            return -1f;
+        }
+        Debug.Log(rb.velocity.magnitude);
+        return rb.velocity.magnitude;
+    }
 }

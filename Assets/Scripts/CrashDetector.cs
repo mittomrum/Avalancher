@@ -16,9 +16,10 @@ public class CrashDetector : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("Crash");
+
         if (collision.gameObject.tag == tagToCheck)
         {
-            Debug.Log("Crash");
             ShowCrashMessage("Crash");
             particleEffect.Play();
             StartCoroutine(HideCrashMessage(secondsToWait));
