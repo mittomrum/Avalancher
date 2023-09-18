@@ -1,39 +1,53 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DebugWindowManager : MonoBehaviour
 {
-    // Shange the textmeshpro text to reflect the current speed of the player, the player should be added in the inspector, and the speed should update every frame
+    [SerializeField] private PlayerController Player;
+    [SerializeField] private TextMeshProUGUI speedFloat;
+    [SerializeField] private Toggle isgroundedToggle;
 
-    [SerializeField] TextMeshProUGUI playerSpeedText;
-    private Player player;
-
+    [SerializeField] private Toggle isGoingDownhillToggle;
     void Awake()
     {
-        if (playerSpeedText == null){
-            Debug.Log("Could not find player speed text, have you forgotten to add it in the inspector? (debugwindow)");
+        #region missing references
+
+        if(Player == null)
+        {
+            Debug.Log("DebugWindowManager is missing a reference to Player");
         }
-        player = FindObjectOfType<Player>();
+        if(speedFloat == null)
+        {
+            Debug.Log("DebugWindowManager is missing a reference to speedFloat");
+        }
+        #endregion
     }
     void Update()
     {
-        UpdatePlayerSpeed();
+        UpdateSpeed();
+        UpdateGroundedToggle();
+        UpdateDownhillToggle();
     }
 
-    public void UpdatePlayerSpeed()
-    {
-        //make sure the player is not null, and the speed variable exists, otherwise change the text to undefined
-        if (player == null || float.IsNaN(player.speed))
-        {
-            playerSpeedText.text = "Undefined";
-            Debug.LogWarning("Player or speed is null");
-            return;
-        } 
-        
-            playerSpeedText.text = player.GetSpeed().ToString();
-        
+    // Update is called once per frame
+    void UpdateSpeed(){
+        float speed = Player.GetSpeed();
+        float formatedSpeed = Mathf.Round(speed * 100f) / 100f;
+        speedFloat.text = formatedSpeed.ToString();
     }
+    void UpdateGroundedToggle()
+    {
+        bool grounded = Player.IsGrounded();
+        isgroundedToggle.isOn = grounded; // Set the toggle button's state based on grounded
+    }
+    void UpdateDownhillToggle()
+    {
+        bool downhill = Player.IsGoingDownhill();
+        isGoingDownhillToggle.isOn = downhill; // Set the toggle button's state based on downhill
+    }
+    
 }

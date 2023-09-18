@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     // Variable refelcting the speed of the object
-    public float speed = 0f;
+    public float speed = 1f;
 
     //return the speed of the object
     public float GetSpeed()
